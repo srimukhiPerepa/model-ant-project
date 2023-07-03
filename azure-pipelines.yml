@@ -19,9 +19,12 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
-
-- task: PublishPipelineArtifact@1
+- task: UniversalPackages@0
   inputs:
-    targetPath: '$(Pipeline.Workspace)'
-    artifact: 'ant_Project'
-    publishLocation: 'pipeline'
+    command: 'publish'
+    publishDirectory: '$(System.DefaultWorkingDirectory)/build/hello.jar'
+    feedsToUsePublish: 'internal'
+    vstsFeedPublish: 'EnterpriseDevOps/JavaArtifacts'
+    vstsFeedPackagePublish: '$(packageName)'
+    versionOption: 'custom'
+    versionPublish: '$(packageVersion)'
