@@ -21,12 +21,13 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
+    
 - task: UniversalPackages@0
   inputs:
     command: 'publish'
-    publishDirectory: '$(System.DefaultWorkingDirectory)/build/hello.jar'
+    publishDirectory: '$(System.DefaultWorkingDirectory)/build/jar/ant-sample.jar'
     feedsToUsePublish: 'internal'
-    vstsFeedPublish: 'EnterpriseDevOps/JavaArtifacts'
+    vstsFeedPublish: '$(feedName)'
     vstsFeedPackagePublish: '$(packageName)'
     versionOption: 'custom'
     versionPublish: '$(packageVersion)'
