@@ -9,7 +9,7 @@ pool:
 steps:
 - task: Ant@1
   inputs:
-    workingDirectory: '$(System.DefaultWorkingDirectory)/build/jar'
+    workingDirectory: ''
     buildFile: 'build.xml'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.8'
@@ -20,7 +20,7 @@ steps:
 - task: UniversalPackages@0
   inputs:
     command: 'publish'
-    publishDirectory: '$(System.DefaultWorkingDirectory)/build/jar/hello.jar'
+    publishDirectory: '$(System.DefaultWorkingDirectory)/build/hello.jar'
     feedsToUsePublish: 'internal'
     vstsFeedPublish: 'Demo-KT/Demo-KTFeed'
     vstsFeedPackagePublish: '$(packageName)'
