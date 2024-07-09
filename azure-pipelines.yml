@@ -20,7 +20,7 @@ steps:
 - task: UniversalPackages@0
   inputs:
     command: 'publish'
-    publishDirectory: '$(System.DefaultWorkingDirectory)/build/jar/ant-sample.jar'
+    publishDirectory: '$(System.DefaultWorkingDirectory)/build/hello.jar'
     feedsToUsePublish: 'internal'
     vstsFeedPublish: 'Demo-KT/Demo-KTFeed'
     vstsFeedPackagePublish: '$(packageName)'
