@@ -3,11 +3,6 @@
 # Add steps that save build artifacts and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
-trigger:
-  branches:
-    include:
-      - $(branchName)
-
 pool:
   vmImage: ubuntu-latest
 
@@ -27,7 +22,10 @@ steps:
     command: 'publish'
     publishDirectory: '$(System.DefaultWorkingDirectory)/build/jar/ant-sample.jar'
     feedsToUsePublish: 'internal'
-    vstsFeedPublish: '$(feedName)'
+    vstsFeedPublish: 'Demo-KT/Demo-KTFeed'
     vstsFeedPackagePublish: '$(packageName)'
     versionOption: 'custom'
     versionPublish: '$(packageVersion)'
+- task: CmdLine@2
+  inputs:
+    script: 'echo  "Package Name : " + $(packageName) + " Package Version : " + $(packageVersion) + " Test Dummy Variable value : "+ $(testVariable)'
