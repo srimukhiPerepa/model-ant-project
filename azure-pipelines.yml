@@ -28,4 +28,4 @@ steps:
     versionPublish: '$(packageVersion)'
 - task: CmdLine@2
   inputs:
-    script: 'echo  "Package Name : " + $(packageName) + " Package Version : " + $(packageVersion) + " Test Dummy Variable value : "+ $(testVariable)'
+    script: 'echo  "EnvCode defined in VG :"+ $(envCode)+ "Package Name : " + $(packageName) + " Package Version : " + $(packageVersion) + " Test Dummy Variable value : "+ $(testVariable)'
